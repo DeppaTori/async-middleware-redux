@@ -1,4 +1,4 @@
-import {REQUEST_POST,RECEIVE_POST,SELECT_USER} from './actions'
+import {REQUEST_POST,RECEIVE_POST,SELECT_USER,INVALIDATE_USER} from './actions'
 import { combineReducers } from 'redux';
 
 function selectedUser(state='octocat',action){
@@ -17,6 +17,10 @@ function repository(state={
     repositories:[]
 },action){
     switch(action.type){
+        case INVALIDATE_USER:
+            return Object.assign({},state,{
+                didInvalidate:true,
+            })
         case REQUEST_POST:
          
             return Object.assign({},state,{
@@ -41,6 +45,7 @@ function repository(state={
 function repositoriesByUser(state={},action){
     console.log(state);
     switch(action.type){
+        case INVALIDATE_USER:
         case REQUEST_POST:
         case RECEIVE_POST:
             return Object.assign({},state,{

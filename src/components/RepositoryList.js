@@ -2,13 +2,16 @@ import React,{Component} from 'react'
 
 class RepositoryList extends Component{
     render(){
-        const {repositories} = this.props
+        const {repositories,isFetching} = this.props
         return (
-            <ul>
-                {repositories.map(repository=>(
-                    <li key={repository.id}>{repository.name}</li>
-                ))}
-            </ul>
+            <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+                <ul>
+                    {repositories.map(repository=>(
+                        <li key={repository.id}>{repository.name}</li>
+                    ))}
+                </ul>
+            </div>
+            
         )
     }
 }

@@ -6,7 +6,7 @@ const mapStateToProps = state =>{
     const {selectedUser,repositoriesByUser} = state
     const {isFetching,lastUpdated,repositories} = repositoriesByUser[selectedUser] 
     || { isFetching:true,repositories:[]}
-    console.log(repositories)
+ 
     return {
         selectedUser,
         repositories,

@@ -56,7 +56,7 @@ function shouldFetchPosts(state,user){
     }else if(repositories.isFetching){
         return false
     }else{
-        return repositories.diInvalidate
+        return repositories.didInvalidate
     }
 }
 
